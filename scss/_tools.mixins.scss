@@ -1,0 +1,219 @@
+﻿@mixin clearfix {
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+%clearfix {
+    @include clearfix;
+}
+
+@mixin strattons-caps($size, $spacing) {
+    @include rem(font-size, $size);
+    text-transform: uppercase;
+    letter-spacing: $spacing;
+}
+
+@mixin svg-sprite($x, $y) {
+    background: url(/media/images/sprites.svg) no-repeat ($x * -50px) ($y * -50px);
+
+    .no-svg & {
+        background-image: url(/media/images/sprites.png);
+    }
+}
+
+@mixin arrow($size, $rotation, $color, $bordersize) {
+    content: ' ';
+    display: block;
+    width: $size;
+    height: $size;
+    transform: rotate($rotation);
+    border-top: $bordersize solid $color;
+    border-right: $bordersize solid $color;
+}
+
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/*
+ * 'rem' is a Sass mixin that converts pixel values to rem values for whatever property is passed to it.
+ * It returns two lines of code — one of the regular pixel values (for IE), and another with the
+ * converted rem values (for everyone else). Special thanks to Chris Epstein (http://chriseppstein.github.com)
+ * and Martin Bavio (http://martinbavio.com) for the help and code!
+ * 
+ * Sample input:
+ * .element {
+ *   @include rem('padding',10px 0 2px 5px);
+ * }
+ * 
+ * Sample output:
+ * .element {
+ *   padding: 10px 0 2px 5px;
+ *   padding: 1rem 0 0.2rem 0.5rem;
+ * }
+ * 
+ */
+
+// Baseline, measured in pixels
+// The value should be the same as the font-size value for the html element
+// If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+// then the variable below would be 10px.
+
+$baseline_px: 10px;
+
+@mixin rem($property, $px_values) {
+    // Convert the baseline into rems
+    $baseline_rem: ($baseline_px / 1rem);
+
+    // Print the first line in pixel values
+    #{$property}: $px_values;
+    // If there is only one (numeric) value, return the property/value line for it.
+    @if type-of($px_values) == 'number' {
+        #{$property}: $px_values / $baseline_rem;
+    }
+    // If there is more than one value, create a list and perform equations on each value
+    @else {
+        // Create an empty list that we can dump values into
+        $rem_values: ();
+
+        @each $value in $px_values {
+            // If the value is zero, return 0
+            @if $value == 0 {
+                $rem_values: append($rem_values, $value);
+            }
+            // If the value is not zero, convert it from px to rem
+            @else {
+                $rem_values: append($rem_values, ($value / $baseline_rem) );
+            }
+        }
+        // Return the property and its list of converted values
+        #{$property}: $rem_values;
+    }
+}
+
+//vendor prefixes
+
+@mixin prefix($property, $values...) {
+    -moz-#{$property}: $values;
+    -ms-#{$property}: $values;
+    -o-#{$property}: $values;
+    -webkit-#{$property}: $values;
+    #{$property}: $values;
+}
+
+@mixin transition($values...) {
+    @include prefix(transition, $values);
+}
+
+/*
+Truncates the decimal part of a floating point number.
+*/
+@function truncate($number, $decimals) {
+    $scale: pow(10, $decimals);
+    $result: $number * $scale;
+    $result: floor($result);
+    $result: $result / $scale;
+    @return $result;
+}
+
+@mixin border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+//css columns
+@mixin css-columns($column-count) {
+    @include prefix(column-count, $column-count);
+    @include prefix(column-fill, auto);
+}
+
+//media queries
+
+@mixin bp-small {
+    @media (max-width: #{$bp-small - 1px}) {
+        @content;
+    }
+}
+
+@mixin bp-medium {
+    @media (min-width: #{$bp-small}) and (max-width: #{$bp-medium - 1px}) {
+        @content;
+    }
+}
+
+@mixin bp-large {
+    @media (min-width: #{$bp-medium}) and (max-width: #{$bp-large - 1px}) {
+        @content;
+    }
+}
+
+@mixin bp-xl {
+    @media (min-width: #{$bp-large}) and (max-width: #{$bp-xl}) {
+        @content;
+    }
+}
+
+@mixin mq-min($value) {
+    @media only screen and (min-width: #{$value}) {
+        @content;
+    }
+}
+
+@mixin mq-max($value) {
+    @media only screen and (max-width: #{$value - 1px}) {
+        @content;
+    }
+}
+
+@mixin mq-custom($min, $max) {
+    @media all and (min-width: #{$min}) and (max-width: #{$max - 1px}) {
+        @content;
+    }
+}
+
+//Flexbox
+
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex: $values;
+    -webkit-flex: $values;
+    -ms-flex: $values;
+    flex: $values;
+}
+
+@mixin order($val) {
+    -ms-flex-order: $val;
+    order: $val;
+}
+
+//Object Fit mixin
+
+@mixin media-fill($objfit, $objpos) {
+    overflow: hidden;
+
+    img, video {
+        width: 100%;
+        height: 100%;
+        object-fit: $objfit;
+        object-position: $objpos;
+    }
+}

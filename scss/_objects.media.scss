@@ -1,0 +1,34 @@
+﻿
+img {
+    &.responsive-image {
+        width: 100%;
+        height: auto !important;
+        display: block;
+        flex-shrink: 0;
+    }
+
+    &.img--bkground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 1s ease;
+
+        [class*='grid__col--'] & {
+            position: relative;
+        }
+    }
+}
+
+
+.bg-wrapper--full {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &.cover > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+}

@@ -1,0 +1,68 @@
+﻿
+.masthead {
+    background: #fff;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 10px;
+    border-image: url(../images/dotted-line.png) 10 repeat;
+    -moz-border-image: url(../images/dotted-line.png) 10 repeat;
+    -webkit-border-image: 10 url(../images/dotted-line.png) repeat;
+    -o-border-image: url(../images/dotted-line.png) 10 repeat;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-color: transparent;
+
+    .inner {
+        background: url(#{$IMAGE_PATH}Cottage_pie_02_lowres_RGB.jpg) center center no-repeat;
+        background-size: 100% auto;
+        padding: 40px 0;
+        margin-bottom: 3px;
+    }
+
+    .grid__col--12 {
+        @include flexbox;
+        align-items: center;
+        position: relative;
+    }
+
+    a, p {
+        display: inline-block;
+        margin: 0;
+    }
+
+    a {
+        max-width: 300px;
+        margin-right: 30px;
+    }
+
+    .lead {
+        background: url(#{$IMAGE_PATH}textbanner.png) center center no-repeat;
+        background-size: 100% 100%;
+        margin-top: 20px;
+        padding: 20px 20px 5px;
+        display: block;
+        font-family: $font1;
+        font-size: 50px;
+        line-height: 50px;
+        @include prefix(transform, rotate(-2deg));
+    }
+
+    .logo__link {
+        display: block;
+        max-width: 200px;
+        position: absolute;
+        top: 0;
+        left: 20px;
+    }
+
+    h1, a, p {
+        color: $textColour;
+    }
+
+    @include mq-max($bp-medium) {
+        .inner {
+            background-size: cover;
+        }
+    }
+}
