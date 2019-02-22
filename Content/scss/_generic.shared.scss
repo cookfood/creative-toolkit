@@ -1,0 +1,16 @@
+﻿
+section, section.grid {
+    margin-bottom: $sectionMarginBottom;
+}
+
+.three-col-css {
+    @include css-columns(3);
+}
+
+.two-col-css {
+    @include css-columns(2);
+
+    @include bp-small {
+        @include css-columns(1);
+    }
+}

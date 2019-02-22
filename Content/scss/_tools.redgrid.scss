@@ -1,0 +1,312 @@
+﻿@import "tools.mixins";
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    font-weight: 400;
+}
+
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    @include border-box;
+}
+
+#sitebody {
+    margin-bottom: 0;
+}
+
+.grid {
+    width: 100%;
+    margin: 0 auto;
+
+    padding: {
+        top: $gutter * 1.5;
+        right: $gutter;
+        bottom: $gutter * 1.5;
+        left: $gutter;
+    }
+
+    @include mq-max($bp-medium) {
+        padding: {
+            top: $gutter;
+            right: 0;
+            bottom: $gutter;
+            left: 0;
+        }
+    }
+    //@supports (display: -ms-flexbox) or (display: flex) {
+    @include flexbox();
+    @include flex(0 1 auto);
+    flex-flow: row wrap;
+    //}
+    max-width: $gridMaxWidth;
+
+    &.grid--full-width {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+
+        @include mq-max($bp-medium) {
+            padding: {
+                top: 20px;
+                right: 0;
+                bottom: 20px;
+                left: 0;
+            }
+        }
+    }
+
+    &.grid--extra-padding {
+        padding: 20px;
+    }
+
+    &.nopadding--top-bottom {
+        padding: 0 20px;
+    }
+
+    &.nopadding--sides {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &.nopadding--bottom {
+        padding-bottom: 0;
+    }
+
+    &.grid--green {
+        background: $green;
+
+        p, a {
+            color: $white;
+        }
+    }
+}
+
+.grid, .row {
+    /*@extend %clearfix;*/ //removing this for now as safari flexbox doesnt like the pseudo elements it adds
+}
+
+[class*='grid__col--'] {
+    float: left;
+
+    padding: {
+        top: $gutter;
+        right: $gutter;
+        bottom: $gutter;
+        left: $gutter;
+    }
+
+    @include mq-max($bp-medium) {
+        padding: {
+            top: $gutter;
+            right: $gutter;
+            bottom: $gutter;
+            left: $gutter;
+        }
+    }
+
+    width: 100%;
+    /*min-height: 1px;*/
+    //@supports (display: flex) {
+    @include flex(0 0 auto);
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    //}
+    /*[class*='grid__col--'] {
+        padding: {
+            right: $gutter / 2;
+            left: $gutter / 2;
+        }
+    }*/
+
+    &.full-height {
+        height: 100%;
+    }
+
+    &.no-margin {
+        margin: 0;
+    }
+
+    &.no-padding {
+        padding: 0;
+    }
+
+    &.nopadding--top-bottom {
+        padding: 0 20px;
+    }
+
+    &.nopadding--bottom {
+        padding-bottom: 0;
+    }
+
+    &.grid__col--single {
+        max-width: 1000px;
+        float: none;
+        margin: 0 auto;
+    }
+
+    &.grid__col--narrow {
+        max-width: 600px;
+        float: none;
+        margin: 0 auto;
+    }
+
+    @include mq-max(#{$bp-medium - 1px}) {
+
+        &.nopadding--top-bottom {
+            padding: 20px;
+        }
+    }
+}
+
+.grid .content {
+    float: left;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    /*&.padded {
+        padding: $gridContentPadding;
+    }*/
+    /*border: 1px dashed rgba(130,130,130,0.3);  for testing */
+}
+
+.grid--equal-height .content, .content--equal-height {
+    height: 100%;
+}
+
+.nopadding--all {
+    padding: 0!important;
+}
+
+.nomargin--all {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+@for $i from 1 through $gridColumns {
+    .grid__col--#{$i} {
+        width: 100%;
+
+        @include mq-max($bp-small) {
+            //@supports (display: flex) {
+            @include flex(0 1 100%);
+            // }
+        }
+    }
+}
+
+@for $i from 1 through $gridColumns {
+    .grid__col--offset-#{$i} {
+        margin-left: 0;
+    }
+}
+
+//sets styles for tablet sizes
+
+@include mq-min($bp-small) {
+    .grid {
+        width: 100%;
+        max-width: $gridMaxWidth;
+
+        &.grid--full-width {
+            max-width: 100%;
+        }
+    }
+
+    @for $i from 1 through $gridColumns {
+        .grid__col--#{$i} {
+            width: 100% / $gridColumns * $i;
+        }
+    }
+}
+
+@include mq-min($bp-medium) {
+
+    @for $i from 1 through $gridColumns {
+        .grid__col--offset-#{$i} {
+            margin-left: 100% / $gridColumns * $i;
+        }
+    }
+}
+
+//Sets styles for desktop sizes
+
+@include mq-min($bp-large) {
+
+    .grid {
+        width: 100%;
+        max-width: $gridMaxWidth;
+
+        &.grid--full-width {
+            max-width: 100%;
+        }
+    }
+}
+
+//hidden classes breakpoints
+
+@include mq-max($bp-xl) {
+
+    @for $i from 1 through $gridColumns {
+        .grid__col--#{$i}-x {
+            width: 100% / $gridColumns * $i;
+        }
+    }
+
+    .hidden--x {
+        display: none;
+    }
+}
+
+@include mq-max(#{$bp-large - 1px}) {
+
+    @for $i from 1 through $gridColumns {
+        .grid__col--#{$i}-l {
+            width: 100% / $gridColumns * $i;
+        }
+    }
+
+    .hidden--l {
+        display: none;
+    }
+}
+
+@include mq-max(#{$bp-medium - 1px}) {
+
+    @for $i from 1 through $gridColumns {
+        .grid__col--#{$i}-m {
+            width: 100% / $gridColumns * $i;
+        }
+    }
+
+    .hidden--m {
+        display: none;
+    }
+}
+
+@include mq-max(#{$bp-small - 1px}) {
+
+    @for $i from 1 through $gridColumns {
+        .grid__col--#{$i}-s {
+            width: 100% / $gridColumns * $i;
+        }
+    }
+
+    .hidden--s {
+        display: none;
+    }
+}

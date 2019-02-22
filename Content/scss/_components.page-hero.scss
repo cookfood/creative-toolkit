@@ -1,0 +1,195 @@
+﻿
+.page-title.grid {
+    padding-top: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    z-index: 2;
+
+    h1 {
+        background: url(#{$IMAGE_PATH}christmas2.png) center center no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 0;
+        padding-bottom: 10%;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        z-index: 3;
+        color: transparent;
+        text-indent: -1000px;
+    }
+}
+
+.page-hero {
+    //min-height: 350px;
+    /*@include flexbox();
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;*/
+    background: url(#{$IMAGE_PATH}Lunch_For_8_04_lowres_RGB.jpg) center center no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0;
+    z-index: 1;
+    //margin-top: -14vh;
+    padding-top: 0;
+    display: block;
+    text-align: center;
+
+    .hero__inner {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px 30px 0;
+        display: inline-block;
+        margin: 100px 0;
+        position: relative;
+
+        &:before {
+            content: " ";
+            background: transparent url(#{$IMAGE_PATH}blue-stars-left.png) center no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 50%;
+            @include prefix(transform, translateY(-50%));
+            left: -40px;
+            width: 70px;
+            height: 79px;
+        }
+
+        &:after {
+            content: " ";
+            background: transparent url(#{$IMAGE_PATH}blue-stars-right.png) center no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 50%;
+            @include prefix(transform, translateY(-50%));
+            right: -50px;
+            width: 77px;
+            height: 92px;
+        }
+
+        span {
+            position: absolute;
+        }
+
+        .stars-top {
+            content: " ";
+            background: transparent url(#{$IMAGE_PATH}blue-stars-top.png) center no-repeat;
+            background-size: contain;
+            top: 0;
+            margin-top: -26px;
+            left: 60%;
+            width: 74px;
+            height: 52px;
+        }
+
+        .stars-bottom {
+            content: " ";
+            background: transparent url(#{$IMAGE_PATH}blue-stars-bottom.png) center no-repeat;
+            background-size: contain;
+            bottom: 0;
+            margin-bottom: -20px;
+            left: 20%;
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    h1 {
+        //@include prefix(transform, translateY(50px));
+        color: $textColour;
+        text-transform: none;
+        font-weight: $font1reg;
+        @include rem(font-size, $heroH1FontSize);
+        display: inline;
+        padding: 0;
+    }
+
+    @include mq-max(640px) {
+        .hero__inner {
+            max-width: 265px;
+            padding: 20px 30px 10px;
+
+            h1 {
+                @include rem(font-size, 46px);
+            }
+        }
+    }
+
+    .page-hero__feature {
+        @include prefix(transform, translateY(50px));
+
+        aside {
+            animation: feature 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s 1 normal both;
+        }
+    }
+
+    .table {
+        background: url(#{$IMAGE_PATH}table.png) center center no-repeat;
+        background-size: cover;
+    }
+
+    .lunch-for-8 {
+        background: url(#{$IMAGE_PATH}lunch-for-8.png) center center no-repeat;
+        background-size: cover;
+        position: relative;
+
+        .corner {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: white;
+        }
+    }
+
+    .hero__banner {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+/*@include mq-max($bp-xl) {
+    .page-title.grid {
+
+        h1 {
+            padding-bottom: 15%;
+        }
+    }
+
+    .page-hero.grid {
+        margin-top: -14vh;
+    }
+}
+
+@include mq-max($bp-large) {
+
+    .page-hero.grid {
+        margin-top: -10vh;
+    }
+}
+
+@include mq-max($bp-medium) {
+
+    .page-hero.grid {
+        margin-top: -8vh;
+    }
+}
+
+@include mq-max($bp-small) {
+
+    .page-title.grid {
+        padding-top: 30px;
+
+        h1 {
+            background: url(#{$IMAGE_PATH}christmas-mob.png) center center no-repeat;
+            background-size: contain;
+            padding-bottom: 17%;
+        }
+    }
+
+    .page-hero.grid {
+        margin-top: -5vh;
+    }
+}*/
