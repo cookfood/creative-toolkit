@@ -163,9 +163,11 @@
     <Content Include="Content\images\dotted-line.png" />
     <Content Include="Content\images\dropdown-arrow3.png" />
     <Content Include="Content\images\icons\arrow.png" />
+    <Content Include="Content\images\icons\backwards.png" />
     <Content Include="Content\images\icons\basket2.png" />
     <Content Include="Content\images\icons\car.png" />
     <Content Include="Content\images\icons\enews.png" />
+    <Content Include="Content\images\icons\forward.png" />
     <Content Include="Content\images\icons\home.png" />
     <Content Include="Content\images\icons\map_finder.png" />
     <Content Include="Content\images\icons\menu.png" />
@@ -182,20 +184,6 @@
     <Content Include="Content\images\textbanner.png" />
     <Content Include="Content\images\textbannergreen.png" />
     <Content Include="Content\images\textbannersml.png" />
-    <Content Include="Content\img\extreme.jpg" />
-    <Content Include="Content\img\image001.jpg" />
-    <Content Include="Content\img\image002.jpg" />
-    <Content Include="Content\img\image003.jpg" />
-    <Content Include="Content\img\image004.jpg" />
-    <Content Include="Content\img\image005.jpg" />
-    <Content Include="Content\img\image006.jpg" />
-    <Content Include="Content\img\image007.jpg" />
-    <Content Include="Content\img\svg\basket.svg" />
-    <Content Include="Content\img\svg\MadeByRedspa--BLACK.svg" />
-    <Content Include="Content\img\svg\MadeByRedspa--RED.svg" />
-    <Content Include="Content\img\svg\MadeByRedspa--WHITE.svg" />
-    <Content Include="Content\img\video\vid1.mp4" />
-    <Content Include="Content\img\video\vid2.mp4" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\js\map.js" />
     <Content Include="Content\js\scripts--generic.js" />
@@ -248,8 +236,6 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\plugins\jquery-ui-custom\package.json" />
-    <Content Include="Content\img\video\vid1.webm" />
-    <Content Include="Content\img\video\vid2.webm" />
     <Content Include="Content\scss\_components.masthead.scss" />
     <Content Include="Content\scss\_components.modules.scss" />
     <Content Include="Content\fonts\handwriting.eot" />
@@ -265,6 +251,9 @@
     <Content Include="Content\scss\_components.navigation.scss" />
     <Content Include="Content\scss\_elements.forms.scss" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Properties\PublishProfiles\cook-creative-toolkit - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\cook-creative-toolkit - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\cook-creative-toolkit - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -296,23 +285,6 @@
     <Content Include="bin\System.Web.WebPages.Razor.dll" />
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\downloads\download_4.jpg" />
-    <Content Include="Content\img\image1.jpg" />
-    <Content Include="Content\img\image2.jpg" />
-    <Content Include="Content\img\svg\slideshow-nav-arrow-01.svg" />
-    <Content Include="Content\img\svg\slideshow-nav-arrow-02.svg" />
-    <Content Include="Content\img\svg\icon-checked.svg" />
-    <Content Include="Content\img\svg\icon-close-white.svg" />
-    <Content Include="Content\img\svg\icon-close.svg" />
-    <Content Include="Content\img\svg\icon-search-grey.svg" />
-    <Content Include="Content\img\svg\icon-search.svg" />
-    <Content Include="Content\img\svg\icon-mail.svg" />
-    <Content Include="Content\img\svg\social-pinterest.svg" />
-    <Content Include="Content\img\svg\social-twitter.svg" />
-    <Content Include="Content\img\svg\social-facebook.svg" />
-    <Content Include="Content\img\svg\social-share.svg" />
-    <Content Include="Content\img\svg\social-instagram.svg" />
-    <Content Include="Content\img\svg\soclia-linkedin.svg" />
-    <Content Include="Content\img\svg\social-youtube.svg" />
     <Content Include="Content\plugins\aos\aos.css" />
     <Content Include="Content\plugins\aos\aos.js" />
     <Content Include="Content\plugins\flickity\flickity.css" />
