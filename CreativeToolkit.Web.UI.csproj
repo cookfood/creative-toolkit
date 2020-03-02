@@ -152,10 +152,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\css\styles.min.css">
       <DependentUpon>styles.css</DependentUpon>
@@ -224,7 +220,6 @@
     <Content Include="Content\plugins\jquery-ui-custom\LICENSE.txt" />
     <Content Include="Content\plugins\object-fit-polyfill\objectFitPolyfill.basic.min.js" />
     <Content Include="Content\plugins\object-fit-polyfill\objectFitPolyfill.min.js" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -270,9 +265,6 @@
     <Content Include="Content\scss\_components.navigation.scss" />
     <Content Include="Content\scss\_elements.forms.scss" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
